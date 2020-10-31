@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="dist/main.css" />
+  </head>
+  <body>
+    <div class="card">
+      <span class="question" id="question">
+        Best modern programming language ? Lorem ipsum dolor sit amet
+        consectetur adipisicing elit.
+      </span>
+      <div class="answers">
+        <ul>
+          <li>
+            <input type="radio" name="answers" id="a" /><label for="a"
+              >Javascript</label
+            >
+          </li>
+          <li>
+            <input type="radio" name="answers" id="b" /><label for="b"
+              >Rust</label
+            >
+          </li>
+          <li>
+            <input type="radio" name="answers" id="c" /><label for="c"
+              >Go</label
+            >
+          </li>
+          <li>
+            <input type="radio" name="answers" id="d" /><label for="d"
+              >Python</label
+            >
+          </li>
+        </ul>
+        <div class="controls">
+          <button class="control">Next Question</button>
+        </div>
+      </div>
+    </div>
+    <script src="dist/main.dev.js"></script>
+  </body>
+</html>
