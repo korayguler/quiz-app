@@ -1,0 +1,17 @@
+[
+  {
+    "question": "Best Programming Language For Web Development ?",
+    "answers": ["Javascript", "Rust", "C++", "Python"],
+    "answer": "JavaScript"
+  },
+  {
+    "question": "Cumhuriyet Kaç yılında İlan Edilmiştir ?",
+    "answers": ["1881", "1912", "1923", "1924"],
+    "answer": "1923"
+  },
+  {
+    "question": "Hangisi bir Lars Von Tier filmidir ?",
+    "answers": ["Antichrist", "Tokyo Drift", "Avengers", "Dabbe"],
+    "answer": "Antichrist"
+  }
+]
