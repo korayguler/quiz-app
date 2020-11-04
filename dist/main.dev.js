@@ -11,17 +11,23 @@ var questionsData = [];
 var counter = 0;
 var score = 0;
 control.addEventListener('click', function (e) {
-  if (counter < questionsData.length - 1) {
+  if (counter < questionsData.length) {
     answers.forEach(function (e) {
       if (e.checked) {
-        counter++;
+        console.log(e);
         calculate(e.value);
+        counter++;
         UI();
       }
     });
   } else {
     console.log(questionsData.length, score);
     yourScore(questionsData.length, score);
+  }
+
+  if (counter === questionsData.length) {
+    control.innerText = 'Finish';
+    control.classList.add('last');
   }
 
   e.preventDefault();
@@ -66,14 +72,14 @@ var UI = function UI() {
 };
 
 var yourScore = function yourScore(all, score) {
-  var template = "<h1 id=\"your-score\">Your Score : ".concat(all, " / ").concat(score, "</h1> ");
-  document.querySelector('.card').innerHTML += template;
+  var template = "<h2 id=\"your-score\">Your Score : ".concat(all, " / ").concat(score, "</h2> ");
+  document.querySelector('.title').innerHTML += template;
   counter = 0;
   score = 0;
   setTimeout(function () {
     document.querySelector('#your-score').remove();
     location.reload();
-  }, 3000);
+  }, 2000);
 };
 
 var calculate = function calculate(selected) {

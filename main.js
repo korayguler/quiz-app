@@ -5,16 +5,19 @@ const cText = document.querySelector('#c-text');
 const dText = document.querySelector('#d-text');
 const control = document.querySelector('#control');
 const answers = document.getElementsByName('answers');
+
 let questionsData = [];
 let counter = 0;
 let score = 0;
+
 control.addEventListener('click', (e) => {
-  if (counter < questionsData.length - 1) {
+  if (counter < questionsData.length) {
     answers.forEach((e) => {
       if (e.checked) {
+        console.log(e);
+        calculate(e.value);
         counter++;
 
-        calculate(e.value);
         UI();
       }
     });
@@ -22,6 +25,11 @@ control.addEventListener('click', (e) => {
     console.log(questionsData.length, score);
     yourScore(questionsData.length, score);
   }
+  if (counter === questionsData.length) {
+    control.innerText = 'Finish';
+    control.classList.add('last');
+  }
+
   e.preventDefault();
 });
 
@@ -52,20 +60,19 @@ const UI = () => {
 };
 
 const yourScore = (all, score) => {
-  const template = `<h1 id="your-score">Your Score : ${all} / ${score}</h1> `;
-  document.querySelector('.card').innerHTML += template;
+  const template = `<h2 id="your-score">Your Score : ${all} / ${score}</h2> `;
+  document.querySelector('.title').innerHTML += template;
   counter = 0;
   score = 0;
   setTimeout(() => {
     document.querySelector('#your-score').remove();
     location.reload();
-  }, 3000);
+  }, 2000);
 };
 
 const calculate = (selected) => {
   const currentData = questionsData[counter];
   if (!currentData) return;
-
   const answer = String(currentData.answer).toLowerCase();
   const select = String(selected).toLowerCase();
   console.log(answer, select);
